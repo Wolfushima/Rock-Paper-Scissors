@@ -3,86 +3,51 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock Paper Scissors</title>
+    <title>Rock Paper Scissors of Oz</title>
+    <link rel="stylesheet" href="style.css">
+    <!--"Icons made by Flat Icons from www.flaticon.com"-->
 </head>
 <body>
-    <script>
-        let roundsPlayed = 0; 
-        let playerScore = 0;
-        let computerScore = 0;
+    <div class="characters">
+        <div class="character">
+            <img src="Images/wizard.png" alt="Wizard">
+        </div>
+        <div class="character">
+            <img src="Images/santaclaus.png" alt="Santa Claus">
+        </div>
+        <div class="character">
+            <img src="Images/angel.png" alt="Angel">
+        </div>
+    </div>
 
-        while (roundsPlayed <= 4) {
-            let enterChoice = prompt('Enter rock, paper or scissors', '');
+    <div class="enemies">
+        <div class="enemy">
+            <img src="Images/dragon.png" alt="Dragon">
+        </div>
+        <div class="enemy">
+            <img src="Images/witch.png" alt="Witch">
+        </div>
+        <div class="enemy">
+            <img src="Images/devil.png" alt="Devil">
+        </div>
+    </div>
 
-            let playerSelection = enterChoice.toLowerCase();
-                alert(playerSelection);
+    <div class="weapons">
+        <div class="weapon">
+            <img src="Images/rock.png" alt="Rock">
+            <span class="weapon-name">Rock</span>
+        </div>
+        <div class="weapon">
+            <img src="Images/paper.png" alt="Paper">
+            <span class="weapon-name">Paper</span>
+        </div>
+        <div class="weapon">
+            <img src="Images/scissors.png" alt="Scissors">
+            <span class="weapon-name">Scissors</span>
+        </div>
+    </div>
 
-            let computerSelection = computerPlay().toLowerCase();
-                alert(computerSelection);
-
-
-            playRound(playerSelection, computerSelection);
-            
-            
-            function computerPlay() {
-                var computerRandom = ['rock','paper','scissors'];
-                var computerRandom = computerRandom[Math.floor(Math.random() * 3)];
-                return computerRandom;
-            }
-            
-            function playRound(playerSelection, computerSelection) {
-                if (playerSelection == computerSelection) {
-                    alert('Tie');
-                    return
-                }   
-                else if (playerSelection == 'rock' && computerSelection == 'paper') {
-                    alert('You lost! Paper beats Rock');
-                    computerScore++;
-                    return computerScore;
-                }
-                else if (playerSelection == 'rock' && computerSelection == 'scissors') {
-                    alert('You won! Rock beats Scissors');
-                    playerScore++;
-                    return playerScore;
-                }
-                else if (playerSelection == 'paper' && computerSelection == 'rock') {
-                    alert('You won! Paper beats Rock');
-                    playerScore++;
-                    return playerScore;
-                }
-                else if (playerSelection == 'paper' && computerSelection == 'scissors') {
-                    alert('You lost! Scissors beats Paper');
-                    computerScore++;
-                    return computerScore;
-                }
-                else if (playerSelection == 'scissors' && computerSelection == 'paper') {
-                    alert('You won! Scissors beats Paper');
-                    playerScore++;
-                    return playerScore;
-                }
-                else if (playerSelection == 'scissors' && computerSelection == 'rock') {
-                    alert('You lost! Rock beats Scissors');
-                    computerScore++;
-                    return computerScore;
-                }         
-            }
-
-            roundsPlayed++;
-
-            alert('Player Score: ' + playerScore);
-            alert('Computer Score: ' + computerScore);
-        }
-
-        if (playerScore > computerScore) {
-            alert('Player Won!');  
-        }
-        else if (playerScore < computerScore) {
-            alert('Computer Won!');
-        }
-        else {
-            alert('No one won!');
-        }
-    </script>
+    <script scr='scripts.js'></script>
 </body>
 </html>
 
