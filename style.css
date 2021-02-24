@@ -1,3 +1,39 @@
-body {
-    background-color: blue;
+html {
+    font-size: 20px;
+    background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)),
+    url('Images/background.jpg')no-repeat center center fixed;
+    background-size: cover;
 }
+
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+.characters, .weapons, span {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+}
+
+.character {
+    width: 60px;
+    height: 60px;
+}
+
+.weapon {
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    padding: 5px;
+    margin: 5px;
+}
+
+.weapon img, .character img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    transform: scaleX(-1);
+}
+
