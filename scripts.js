@@ -1,4 +1,4 @@
-let roundsPlayed = 0; 
+/*let roundsPlayed = 0; 
 let playerScore = 0;
 let computerScore = 0;
 
@@ -73,3 +73,4 @@ else if (playerScore < computerScore) {
 else {
     alert('No one won!');
 }
+*/

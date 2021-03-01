@@ -1,39 +1,168 @@
-html {
-    font-size: 20px;
-    background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)),
-    url('Images/background.jpg')no-repeat center center fixed;
-    background-size: cover;
-}
-
-body, html {
-    margin: 0;
+*, *::before, *::after {
+    box-sizing: border-box;
     padding: 0;
+    margin: 0;
 }
 
-.characters, .weapons, span {
+html {
+    height: 100%;
+    font-size: 60%;
+    font-family: 'Bungee Shade', cursive;
+    background-color: hsl(283, 100%, 6%);
+    color: rgba(233, 233, 233, 0.898);
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-size: 4em;
+}
+
+.main-content {
+    flex: 1;
+}
+
+header {
+    padding: 1rem;
+    background-image:linear-gradient(#4512524d,#2a0079);
+    text-align: center;
+    width: auto;
+    margin: 1.2rem 1.2rem 1.5rem 1.2rem;
+    text-shadow: 4px 4px 4px #5c5c5cab;
+    border-radius: 2px;
+    box-shadow: 0 0 5px white;
+    animation-name: neon-title;
+    animation-duration: .01s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+.container {
+    background-color: rgba(14, 14, 14, 0.918);
+    border: .5vw solid blue;
+    margin: 1rem 1rem .5rem 1rem;
+    width: auto;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: inset 0 0 10px rgb(101, 29, 182);
+    animation-name: neon-container;
+    animation-duration: .01s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+.chat-boxes {
+    display: flex;
+    align-content: space-between;
+}
+
+.empty-space {
+    flex: 1 1 auto;
+}
+
+.box {
+    width: 30vw;
+    margin: 3vw 3vw 7vw 3vw;
+    background: #ffffff;
+    padding: 20px;
+    text-align: center;
+    font-weight: 900;
+    color: rgb(0, 0, 0);
+    font-family: arial;
+    position: relative;
+}
+
+.sub-b1:before, .sub-b2:before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left: 10px solid transparent;
+    border-right: 10px solid #ffffff;
+    border-top: 10px solid #ffffff;
+    border-bottom: 10px solid transparent;
+    right: 19px;
+    bottom: -19px;
+}
+
+.sub-b2, .player2, .sub-b1 {
+    transform: scaleX(-1);
+}
+
+.character {
+    width: 20vw;
+    height: 20vw;
+}
+
+.health {
+    margin: 1rem 1rem 3rem 1rem;
+    width: auto;
+}
+
+.health img {
+    width: 5vw;
+    height: 5vw;
+    filter: invert(1);
+}
+
+.health, .weapons, span {
     display: flex;
     flex: 1;
     align-items: center;
     justify-content: center;
 }
 
-.character {
-    width: 60px;
-    height: 60px;
-}
-
 .weapon {
-    width: 100px;
-    height: 100px;
-    background-color: blue;
-    padding: 5px;
-    margin: 5px;
+    width: 20vw;
+    height: 20vw;
+    background-color: inherit;
+    padding: .5rem;
 }
 
-.weapon img, .character img {
+span {
+    color: white;
+    font-size: 2rem;
+    font-family:monospace;
+    text-shadow: .1rem .1rem .1rem rgb(55, 192, 255);
+    padding: .7rem .1rem;
+}
+
+.character img, .health img, .weapon img {
     max-width: 100%;
     height: auto;
     object-fit: contain;
     transform: scaleX(-1);
 }
 
+button {
+    margin: auto 2rem;
+    box-shadow: 0px 0px 10px white;
+    outline: none;
+}
+
+button:hover {
+    background-image: linear-gradient(rgb(255, 117, 255),blue);
+    background: linear-gradient(217deg, rgba(255, 79, 255, 0.8), rgba(255,0,0,0) 70.71%),
+            linear-gradient(127deg, rgba(68, 255, 68, 0.8), rgba(0,255,0,0) 70.71%),
+            linear-gradient(336deg, rgba(1, 98, 255, 0.822), rgba(255, 0, 0, 0) 70.71%);
+}
+
+@keyframes neon-title {
+    from {text-shadow: 4px 4px 4px #5c5c5cab;}
+    to {text-shadow: 4px 4px 4px #5a1a1aab;}
+}
+
+@keyframes neon-container {
+    from {box-shadow: inset 0 0 10px rgb(101, 29, 182);}
+    to{box-shadow: inset 0 0 10px rgb(42, 148, 167);}
+}
+
+footer {
+    border: solid red;
+    height: 30px;
+}
+
+/* border: solid 1px rgb(0, 255, 213);   nice color for "play Again" */
