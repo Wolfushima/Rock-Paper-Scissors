@@ -8,10 +8,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap" rel="stylesheet">
     <!--"Icons made by Flat Icons from www.flaticon.com"-->
+    
 </head>
 <body>
     <header>Rock Paper Scissors</header>
-    <div class="main-content">
+    <div class="introGame"><button class="startBtn">Play</button></div>
+
+    <div class="main-content fadeOut">
         <div class="container">
             <div class="chat-boxes">
                 <div class="chat-box-p1">
@@ -43,30 +46,30 @@
         </div>
         
         <div class="weapons">
-            <div class="weapons-cont">
-                <button>
+            <div class="weapons-container">
+                <button data-weapon="rock" id="rock-btn">
                     <div class="weapon"><img src="Images/rock.png" alt="Rock"></div>
                 </button>
                 <span class="weapon-name">Rock</span>
             </div>
-            <div class="weapons-cont">
-                <button>
+            <div class="weapons-container">
+                <button data-weapon="paper" id="paper-btn">
                     <div class="weapon"><img src="Images/paper.png" alt="Paper"></div>
                 </button>
                 <span class="weapon-name">Paper</span>
             </div>
-            <div class="weapons-cont">   
-                <button>
+            <div class="weapons-container">   
+                <button data-weapon="scissors" id="scissors-btn">
                     <div class="weapon"><img src="Images/scissors.png" alt="Scissors"></div>
                 </button>
                 <span class="weapon-name">Scissors</span>
             </div>
         </div>
-
     </div>
 
     <footer></footer>
-    <script scr='scripts.js'></script>
+
+    <script src='script.js'></script>
 </body>
 </html>
 

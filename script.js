@@ -1,15 +1,83 @@
-/*let roundsPlayed = 0; 
+const game = () => {
+    let playerScore = 0;
+    let computerScore = 0;
+
+    //start game
+    const startGame = () => {
+        const startBtn = document.querySelector(".introGame button");
+        const introGame = document.querySelector(".introGame");
+        const mainContent = document.querySelector(".main-content");
+
+        introGame.addEventListener("click", () => {
+            introGame.classList.add("fadeOut");
+            mainContent.classList.add("fadeIn");
+        })
+    }
+    //game
+    const playRound = () => {
+        const weapons = document.querySelectorAll(".weapons-container button");
+
+        const computerWeapons = ["rock", "paper", "scissors"];
+        
+        weapons.forEach(weapon => {
+            weapon.addEventListener("click", function() {
+                const computerRandom = computerWeapons[Math.floor(Math.random() * 3)];
+            })
+        });
+
+        
+    }
+
+
+    //start functions
+    startGame();
+    playRound();
+}
+
+game();
+
+
+
+
+
+
+
+
+
+
+/*
+
+
+const rockButton = document.querySelector("#rock-btn").addEventListener("click", playGame);
+function playGame() {
+    let playChoice = this.dataset.weapon;
+    console.log(playChoice);
+}
+
+
+
+
+const button = document.querySelectorAll('button');
+const selection = Array.from(button);
+
+selection.addEventListener("click", function(e) {
+    console.log(e);
+} )
+playerSelection.addEventListener("click", function(e) {
+    let rock = "rock";
+    console.log(rock);
+});
+
+
+
+let roundsPlayed = 0; 
 let playerScore = 0;
 let computerScore = 0;
 
 while (roundsPlayed <= 4) {
-    let enterChoice = prompt('Enter rock, paper or scissors', '');
+    let playerSelection = 
 
-    let playerSelection = enterChoice.toLowerCase();
-        alert(playerSelection);
-
-    let computerSelection = computerPlay().toLowerCase();
-        alert(computerSelection);
+    let computerSelection = computerPlay();
 
 
     playRound(playerSelection, computerSelection);

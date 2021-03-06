@@ -1,4 +1,6 @@
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
@@ -8,10 +10,7 @@ html {
     height: 100%;
     font-size: 60%;
     font-family: 'Bungee Shade', cursive;
-    
     color: rgba(233, 233, 233, 0.898);
-
-    
 }
 
 body {
@@ -26,7 +25,32 @@ body {
 
 .main-content {
     flex: 1;
-    padding-bottom: 40px;
+    padding-bottom: 20px;
+    transition: opacity 0.5s ease 0.5s;
+}
+
+.introGame {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.5s ease;
+}
+
+.introGame button {
+    height: 100px;
+    width: 100px;
+    border-radius: 10px;
+}
+
+div.fadeOut {
+    opacity: 0;
+    pointer-events: none;
+}
+
+div.fadeIn {
+    opacity: 1;
+    pointer-events: all;
 }
 
 header {
@@ -81,7 +105,8 @@ header {
     position: relative;
 }
 
-.sub-b1:before, .sub-b2:before {
+.sub-b1:before,
+.sub-b2:before {
     content: "";
     width: 0px;
     height: 0px;
@@ -94,7 +119,9 @@ header {
     bottom: -19px;
 }
 
-.sub-b2, .player2, .sub-b1 {
+.sub-b2,
+.player2,
+.sub-b1 {
     transform: scaleX(-1);
 }
 
@@ -114,7 +141,9 @@ header {
     filter: invert(1);
 }
 
-.health, .weapons, span {
+.health,
+.weapons,
+span {
     display: flex;
     flex: 1;
     align-items: center;
@@ -155,7 +184,7 @@ button {
     box-shadow: 0px 0px 1px white;
     outline: none;
     border-radius: 50%;
-    
+    cursor: pointer;
 }
 
 button:hover {
