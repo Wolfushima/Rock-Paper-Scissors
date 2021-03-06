@@ -6,19 +6,30 @@ const game = () => {
     const startGame = () => {
         const startBtn = document.querySelector(".introGame button");
         const introGame = document.querySelector(".introGame");
+        const charChoosen = document.querySelectorAll(".characterSelection button");
+        const charSelection = document.querySelector(".characterSelection");
+        const characters = document.querySelector(".characters");
         const mainContent = document.querySelector(".main-content");
 
-        introGame.addEventListener("click", () => {
+        startBtn.addEventListener("click", () => {
             introGame.classList.add("fadeOut");
-            mainContent.classList.add("fadeIn");
+            charSelection.classList.add("fadeIn");
         })
+        
+        charChoosen.forEach(character => {
+            character.addEventListener("click", () => {
+                characters.classList.add("fadeOut");
+                mainContent.classList.add("fadeIn");
+            })
+        })
+
     }
     //game
     const playRound = () => {
         const weapons = document.querySelectorAll(".weapons-container button");
 
         const computerWeapons = ["rock", "paper", "scissors"];
-        
+
         weapons.forEach(weapon => {
             weapon.addEventListener("click", function() {
                 const computerRandom = computerWeapons[Math.floor(Math.random() * 3)];

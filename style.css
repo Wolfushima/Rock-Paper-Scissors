@@ -37,11 +37,7 @@ body {
     transition: opacity 0.5s ease;
 }
 
-.introGame button {
-    height: 100px;
-    width: 100px;
-    border-radius: 10px;
-}
+
 
 div.fadeOut {
     opacity: 0;
@@ -53,14 +49,27 @@ div.fadeIn {
     pointer-events: all;
 }
 
+.characters {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.5s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.characterSelection .character {
+    margin: auto;
+    height: auto;
+}
+
 header {
-    background-image:linear-gradient(#4512524d,#2a0079);
     text-align: center;
     width: auto;
     margin: 1.2rem 1.2rem 1.5rem 1.2rem;
     text-shadow: 4px 4px 4px #5c5c5cab;
-    border-radius: 2px;
-    box-shadow: 0 0 5px white;
     animation-name: neon-title;
     animation-duration: .01s;
     animation-iteration-count: infinite;
@@ -141,6 +150,7 @@ header {
     margin: auto;
     width: auto;
     height: 90px;
+    animation: weapons-blur .00001s linear infinite;
 }
 
 div.health-1 {
@@ -169,6 +179,7 @@ span {
     padding: 20%;
     border-radius: 50%;
     filter: drop-shadow(0px 0px 10px rgb(0, 247, 255));
+    animation: weapons-blur 5s ease infinite;
 }
 
 .weapon img {
@@ -184,11 +195,17 @@ span {
     padding: .7rem .1rem;
 }
 
-.character img, .health img, .weapon img {
+.character img,
+.health img,
+.weapon img {
     max-width: 100%;
     height: auto;
     object-fit: contain;
     transform: scaleX(-1);
+}
+
+.characterSelection img {
+    padding: 1rem;
 }
 
 button {
@@ -197,7 +214,29 @@ button {
     outline: none;
     border-radius: 50%;
     cursor: pointer;
+    border: 0;
+    background-color: rgba(98, 0, 128, 0.041);
 }
+
+.introGame button {
+    height: 10rem;
+    width: 30rem;
+    border: double 3px rgba(255, 255, 255, 0.514);
+    border-radius: .5rem;
+    font-size: 5rem;
+    font-family: 'Bungee Shade', cursive;
+    color: rgba(233, 233, 233, 0.898);
+    background: transparent;
+    
+}
+
+.characterSelection button {
+    border-radius: .5rem;
+    background-color: rgba(0, 0, 0, 0.13);
+    border: 0px;
+}
+
+
 
 button:hover {
     background-image: linear-gradient(rgb(255, 117, 255),blue);
@@ -205,6 +244,14 @@ button:hover {
             linear-gradient(127deg, rgba(68, 255, 68, 0.8), rgba(0,255,0,0) 70.71%),
             linear-gradient(336deg, rgba(1, 98, 255, 0.822), rgba(255, 0, 0, 0) 70.71%);
 }
+
+.characterSelection button:hover,
+.introGame button:hover {
+    background-color: blue;
+    box-shadow: 0px 0px 1rem rgb(0, 174, 255);
+}
+
+
 
 footer {
     border-top: yellow solid .1px;
@@ -227,6 +274,12 @@ footer {
     0% {background-position: 0% 50%;}
     50% {background-position: 100% 50%;}
     100% {background-position: 0% 50%;}
+}
+
+@keyframes weapons-blur {
+    0% {filter: drop-shadow(0px 0px 5px rgb(0, 247, 255));}
+    50% {filter: drop-shadow(0px 0px 5px rgb(87, 6, 141));}
+    100% {filter: drop-shadow(0px 0px 5px rgb(0, 247, 255));}
 }
 
 
