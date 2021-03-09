@@ -38,23 +38,43 @@ const game = () => {
         })
     }
 
-    
+
     //game
     const playRound = () => {
         const weapons = document.querySelectorAll(".weapons-container button");
-
+        const playerBox = document.querySelector(".sub-b1");
         const computerWeapons = ["rock", "paper", "scissors"];
 
         weapons.forEach(weapon => {
             weapon.addEventListener("click", function() {
-                const computerRandom = computerWeapons[Math.floor(Math.random() * 3)];
-                console.log(computerRandom);
+                const computerSelection = computerWeapons[Math.floor(Math.random() * 3)];
+                //console.log(computerSelection);
+                //console.log(this.dataset.weapon);
+                playerSelection = this.dataset.weapon;
+                //playerBox.src = this.src;
+                compareSelections(playerSelection,computerSelection);
             })
-        });
-
-        
+        })
     }
 
+    const compareSelections = (playerSelection, computerSelection) => {
+        const arena = document.querySelector(".container");
+        
+        if (playerSelection === computerSelection) {
+            arena.style.backgroundColor = "purple";
+            return;
+        }
+        if ((playerSelection === "rock" && computerSelection === "scissors") ||
+            (playerSelection === "paper" && computerSelection === "rock") ||
+            (playerSelection === "scissors" && computerSelection === "paper")) {
+                return arena.style.backgroundColor = "green";
+        }
+        if ((computerSelection === "rock" && playerSelection === "scissors") ||
+            (computerSelection === "paper" && playerSelection === "rock") ||
+            (computerSelection === "scissors" && playerSelection === "paper")) {
+                return arena.style.backgroundColor = "red";
+        }
+    }
 
     //start functions
     startGame();
