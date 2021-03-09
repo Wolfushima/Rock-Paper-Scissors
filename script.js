@@ -6,7 +6,7 @@ const game = () => {
     const startGame = () => {
         const startBtn = document.querySelector(".introGame button");
         const introGame = document.querySelector(".introGame");
-        const charChoosen = document.querySelectorAll(".characterSelection button");
+        const charChoosen = document.querySelectorAll(".characterSelection img");
         const charSelection = document.querySelector(".characterSelection");
         const characters = document.querySelector(".characters");
         const mainContent = document.querySelector(".main-content");
@@ -15,15 +15,30 @@ const game = () => {
             introGame.classList.add("fadeOut");
             charSelection.classList.add("fadeIn");
         })
-        
+
         charChoosen.forEach(character => {
-            character.addEventListener("click", () => {
+            character.addEventListener("click", function() {
+                let imgCharPlayer = document.getElementById("imgCharPlayer");
+                let imgCharComp = document.getElementById("imgCharComp");
+
+                imgCharPlayer.src = this.src;
+
+                const compChar = () => {
+                    if (character.id === "wizardImg") {
+                        return imgCharComp.src = "Images/dragon.png";
+                    } else if (character.id === "santaClausImg") {
+                        return imgCharComp.src = "Images/witch.png";
+                    } else return imgCharComp.src = "Images/devil.png"
+                }
+                compChar();
+
                 characters.classList.add("fadeOut");
                 mainContent.classList.add("fadeIn");
             })
         })
-
     }
+
+    
     //game
     const playRound = () => {
         const weapons = document.querySelectorAll(".weapons-container button");
@@ -33,6 +48,7 @@ const game = () => {
         weapons.forEach(weapon => {
             weapon.addEventListener("click", function() {
                 const computerRandom = computerWeapons[Math.floor(Math.random() * 3)];
+                console.log(computerRandom);
             })
         });
 
