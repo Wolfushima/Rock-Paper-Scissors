@@ -49,6 +49,10 @@ div.fadeIn {
     pointer-events: all;
 }
 
+
+
+
+
 .characters {
     position: absolute;
     top: 50%;
@@ -318,6 +322,10 @@ footer {
     }
     .health {
         margin: auto 2rem;
+    }
+    img.boxImg {
+        height: 30px;
+        width: 30px;
     }
 }
 
