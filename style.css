@@ -115,6 +115,8 @@ header {
     color: rgb(0, 0, 0);
     font-family: arial;
     position: relative;
+    box-shadow: .1rem .1rem .5rem rgba(255, 255, 255, 0.452);
+    border-radius: .2rem;
 }
 
 .sub-b1:before,
@@ -129,6 +131,21 @@ header {
     border-bottom: 10px solid transparent;
     right: 39px;
     bottom: -19px;
+}
+
+.threeDots {
+    position: absolute;
+    top:50%;
+    left: 50%;
+    color: rgb(58, 58, 58);
+    transform: translate(-50%, -50%);
+    animation: threeDots-count 1s ease-in-out infinite;
+}
+
+img.boxImg {
+    height: 3.5rem;
+    width: 3.5rem;
+    visibility: hidden;
 }
 
 .sub-b2,
@@ -251,6 +268,13 @@ button:hover {
             linear-gradient(336deg, rgba(1, 98, 255, 0.822), rgba(255, 0, 0, 0) 70.71%);
 }
 
+button:active { 
+    box-shadow: 0 0.1rem rgba(0, 0, 0, 0);
+    transform: scale(1.1, 1.1);
+}
+
+
+
 .characterSelection button:hover,
 .introGame button:hover {
     background-color: blue;
@@ -294,6 +318,12 @@ footer {
     100% {filter: drop-shadow(0px 0px 5px rgb(89, 0, 255));}
 }
 
+@keyframes threeDots-count {
+    0% {transform: translate(-50%, -50%) scale(1, 1) ;}
+    50% {transform: translate(-50%, -50%) scale(1.1, 1.05);}
+    100% {transform: translate(-50%, -50%) scale(1, 1);}
+}
+
 
 
 @media screen and (min-width: 450px) {
@@ -324,8 +354,9 @@ footer {
         margin: auto 2rem;
     }
     img.boxImg {
-        height: 30px;
-        width: 30px;
+        height: 35px;
+        width: 35px;
+        visibility: hidden;
     }
 }
 

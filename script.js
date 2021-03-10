@@ -44,16 +44,22 @@ const game = () => {
         const weapons = document.querySelectorAll(".weapons-container button");
         const playerBox = document.querySelector(".sub-b1 img");
         const computerBox = document.querySelector(".sub-b2 img");
+        
         const computerWeapons = ["rock", "paper", "scissors"];
 
         weapons.forEach(weapon => {
             weapon.addEventListener("click", function() {
                 const computerSelection = computerWeapons[Math.floor(Math.random() * 3)];
-
+                const boxDotsB1 = document.querySelector(".sub-b1 .threeDots");
+                const boxDotsB2 = document.querySelector(".sub-b2 .threeDots");
                 playerSelection = this.dataset.weapon;
 
                 playerBox.src = `./Images/${this.dataset.weapon}.png`;
                 computerBox.src = `./Images/${computerSelection}.png`;
+                boxDotsB1.style.visibility = "hidden"
+                boxDotsB2.style.visibility = "hidden"
+                playerBox.style.visibility = "visible";
+                computerBox.style.visibility = "visible";
 
                 compareSelections(playerSelection,computerSelection);
             })
