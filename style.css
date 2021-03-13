@@ -75,7 +75,8 @@ header {
 }
 
 .container {
-    background-color: rgba(14, 14, 14, 0.918);
+    /*background: linear-gradient(90deg, hsl(223, 98%, 26%), hsl(221, 84%, 12%), #2f0505, #8a0101);*/
+    background: linear-gradient(90deg, #000000, #000d1f, #000000);
     border: .5vw solid blue;
     margin: 1rem 1rem 1rem 1rem;
     max-width: 100%;
@@ -109,7 +110,7 @@ header {
     color: rgb(0, 0, 0);
     font-family: arial;
     position: relative;
-    box-shadow: .1rem .1rem .5rem rgba(255, 255, 255, 0.452);
+    box-shadow: 0px 0px 1rem rgb(0, 174, 255);
     border-radius: .2rem;
 }
 

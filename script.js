@@ -46,6 +46,7 @@ const game = () => {
 
     //game
     const playRound = () => {
+        const weaponsContainer = document.querySelector(".weapons");
         const weapons = document.querySelectorAll(".weapons-container button");
         const playerBox = document.querySelector(".sub-b1 img");
         const computerBox = document.querySelector(".sub-b2 img");
@@ -67,12 +68,17 @@ const game = () => {
                 boxDotsB2.style.visibility = "hidden"
                 playerBox.style.visibility = "visible";
                 computerBox.style.visibility = "visible";
+
+                weaponsContainer.style.pointerEvents = "none";
                 
                 setTimeout(() => {
                     boxDotsB1.style.visibility = "visible";
                     boxDotsB2.style.visibility = "visible"
                     playerBox.style.visibility = "hidden";
                     computerBox.style.visibility = "hidden";
+
+                    weaponsContainer.style.pointerEvents = "all";
+
                     compareSelections(playerSelection,computerSelection);
                 }, 1000);
 
