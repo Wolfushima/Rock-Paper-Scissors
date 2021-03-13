@@ -1,6 +1,11 @@
 const game = () => {
-    let playerScore = 0;
-    let computerScore = 0;
+    let playerScore = 5;
+    let computerScore = 5;
+
+    let playerBar = document.querySelectorAll(".health-1 img");
+    let computerBar = document.querySelectorAll(".health-2 img");
+    let playerHealth = Array.from(playerBar);
+    let computerHealth = Array.from(computerBar);
 
     //start game
     const startGame = () => {
@@ -52,22 +57,44 @@ const game = () => {
                 const computerSelection = computerWeapons[Math.floor(Math.random() * 3)];
                 const boxDotsB1 = document.querySelector(".sub-b1 .threeDots");
                 const boxDotsB2 = document.querySelector(".sub-b2 .threeDots");
+
                 playerSelection = this.dataset.weapon;
 
                 playerBox.src = `./Images/${this.dataset.weapon}.png`;
                 computerBox.src = `./Images/${computerSelection}.png`;
+                
                 boxDotsB1.style.visibility = "hidden"
                 boxDotsB2.style.visibility = "hidden"
                 playerBox.style.visibility = "visible";
                 computerBox.style.visibility = "visible";
+                
+                setTimeout(() => {
+                    boxDotsB1.style.visibility = "visible";
+                    boxDotsB2.style.visibility = "visible"
+                    playerBox.style.visibility = "hidden";
+                    computerBox.style.visibility = "hidden";
+                    compareSelections(playerSelection,computerSelection);
+                }, 1000);
 
-                compareSelections(playerSelection,computerSelection);
+
+                
             })
         })
     }
 
+    const checkLifePoints = () => {
+        if ((playerScore === 0) || (computerScore === 0)){
+            location.reload();
+        }
+        /*console.log(playerScore);
+        console.log(computerScore);
+        console.log(playerHealth[1]);*/
+        
+        
+    }
+
     const compareSelections = (playerSelection, computerSelection) => {
-        const arena = document.querySelector(".container");
+        const arena = document.querySelector(".container");        
         
         if (playerSelection === computerSelection) {
             arena.style.backgroundColor = "purple";
@@ -76,11 +103,17 @@ const game = () => {
         if ((playerSelection === "rock" && computerSelection === "scissors") ||
             (playerSelection === "paper" && computerSelection === "rock") ||
             (playerSelection === "scissors" && computerSelection === "paper")) {
+                computerScore--;
+                computerHealth[computerScore].src = "Images/health-down.png";
+                checkLifePoints();
                 return arena.style.backgroundColor = "green";
         }
         if ((computerSelection === "rock" && playerSelection === "scissors") ||
             (computerSelection === "paper" && playerSelection === "rock") ||
             (computerSelection === "scissors" && playerSelection === "paper")) {
+                playerScore--;
+                playerHealth[playerScore].src = "Images/health-down.png";
+                checkLifePoints();
                 return arena.style.backgroundColor = "red";
         }
     }
