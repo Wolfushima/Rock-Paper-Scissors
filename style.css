@@ -29,7 +29,7 @@ body {
     transition: opacity 0.5s ease 0.5s;
 }
 
-.introGame {
+.introGame, .outroGame {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -75,8 +75,6 @@ header {
 }
 
 .container {
-    /*background: linear-gradient(90deg, hsl(223, 98%, 26%), hsl(221, 84%, 12%), #2f0505, #8a0101);*/
-    /*background: linear-gradient(180deg, #000000, #000d1f, #000000);*/
     background: linear-gradient(-90deg ,hsl(234, 99%, 33%), hsl(234, 100%, 49%), hsl(219, 59%, 49%), #48b4db, #00ffc8fa,#0dd3a8);
     background-size: 200% 200%;
     border: .5vw solid blue;
@@ -239,7 +237,7 @@ button {
     background-color: rgba(98, 0, 128, 0.041);
 }
 
-.introGame button {
+.introGame button, .outroGame button {
     height: 10rem;
     width: 30rem;
     border: double 3px rgba(255, 255, 255, 0.514);
@@ -248,7 +246,10 @@ button {
     font-family: 'Bungee Shade', cursive;
     color: rgba(233, 233, 233, 0.898);
     background: transparent;
-    
+}
+
+.outroGame button {
+    font-size: 4rem;
 }
 
 .characterSelection button {
@@ -256,8 +257,6 @@ button {
     background-color: rgba(0, 0, 0, 0.13);
     border: 0px;
 }
-
-
 
 button:hover {
     background-image: linear-gradient(rgb(255, 117, 255),blue);
@@ -271,15 +270,11 @@ button:active {
     transform: scale(1.1, 1.1);
 }
 
-
-
 .characterSelection button:hover,
 .introGame button:hover {
     background-color: blue;
     box-shadow: 0px 0px 1rem rgb(0, 174, 255);
 }
-
-
 
 footer {
     border-top: yellow solid .1px;
@@ -334,8 +329,6 @@ footer {
         color: rgb(75, 72, 75);}
 }
 
-
-
 @media screen and (min-width: 450px) {
     .container , header{
         margin: 10px auto;
@@ -369,10 +362,3 @@ footer {
         visibility: hidden;
     }
 }
-
-
-/* border: solid 1px rgb(0, 255, 213);   nice color for "play Again" 
-background-color: hsl(283, 100%, 6%);
-background-color: hsl(234, 89%, 7%);
-background: linear-gradient(-45deg, hsl(234, 89%, 7%), hsl(234, 94%, 18%), #092935, #0a3b30);
-*/

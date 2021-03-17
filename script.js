@@ -7,15 +7,18 @@ const game = () => {
     let playerHealth = Array.from(playerBar);
     let computerHealth = Array.from(computerBar);
     const arena = document.querySelector(".container");
+    const introGame = document.querySelector(".introGame");
+    const body = document.querySelector("body");
+    const mainContent = document.querySelector(".main-content");
 
     //start game
     const startGame = () => {
         const startBtn = document.querySelector(".introGame button");
-        const introGame = document.querySelector(".introGame");
+        
         const charChoosen = document.querySelectorAll(".characterSelection img");
         const charSelection = document.querySelector(".characterSelection");
         const characters = document.querySelector(".characters");
-        const mainContent = document.querySelector(".main-content");
+        
 
         startBtn.addEventListener("click", () => {
             introGame.classList.add("fadeOut");
@@ -43,8 +46,6 @@ const game = () => {
             })
         })
     }
-
-
     //game
     const playRound = () => {
         const weaponsContainer = document.querySelector(".weapons");
@@ -91,20 +92,32 @@ const game = () => {
     }
 
     const checkLifePoints = () => {
-        if ((playerScore === 0) || (computerScore === 5)){
-            location.reload();
+        const div = document.createElement("div");
+        const button = document.createElement("button");
+
+        if ((playerScore === 4) || (computerScore === 1)){//pS = 0, cS = 5
+            body.insertBefore(div, introGame);
+            div.classList.add("outroGame");
+            div.appendChild(button);
+            
+            button.classList.add("endBtn");
+            if (playerScore === 4) { 
+                button.textContent = "You Lost!";
+                button.style.backgroundColor = "#8c0101";
+            }
+            if (computerScore === 1) {
+                button.textContent = "You Won!";
+                button.style.backgroundColor = "#208502";
+            }
+            mainContent.style.zIndex = "-1";
+            mainContent.style.opacity = "0.1";
+            button.onclick = () => { location.reload(); }
         }
-        /*console.log(playerScore);
-        console.log(computerScore);
-        console.log(playerHealth[1]);*/
-        
-        
     }
 
     const compareSelections = (playerSelection, computerSelection) => {  
         
         if (playerSelection === computerSelection) {
-            //arena.style.background = "black";
             return;
         }
         if ((playerSelection === "rock" && computerSelection === "scissors") ||
@@ -116,7 +129,6 @@ const game = () => {
                 computerHealth[computerScore - 1].style.backgroundImage = "none";
                 computerHealth[computerScore - 1].style.filter = "invert(1)";
                 checkLifePoints();
-                //arena.style.background = "green";
                 return;
         }
         if ((computerSelection === "rock" && playerSelection === "scissors") ||
@@ -128,16 +140,12 @@ const game = () => {
                 playerHealth[playerScore].style.backgroundImage = "none";
                 playerHealth[playerScore].style.filter = "invert(1)";
                 checkLifePoints();
-                //arena.style.background = "red";
                 return
         }
     }
-
-    //start functions
     startGame();
     playRound();
 }
-
 game();
 
 
