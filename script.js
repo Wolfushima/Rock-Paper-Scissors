@@ -1,11 +1,12 @@
 const game = () => {
     let playerScore = 5;
-    let computerScore = 5;
+    let computerScore = 0;
 
     let playerBar = document.querySelectorAll(".health-1 img");
     let computerBar = document.querySelectorAll(".health-2 img");
     let playerHealth = Array.from(playerBar);
     let computerHealth = Array.from(computerBar);
+    const arena = document.querySelector(".container");
 
     //start game
     const startGame = () => {
@@ -60,36 +61,37 @@ const game = () => {
                 const boxDotsB2 = document.querySelector(".sub-b2 .threeDots");
 
                 playerSelection = this.dataset.weapon;
-
-                playerBox.src = `./Images/${this.dataset.weapon}.png`;
-                computerBox.src = `./Images/${computerSelection}.png`;
-                
-                boxDotsB1.style.visibility = "hidden"
-                boxDotsB2.style.visibility = "hidden"
-                playerBox.style.visibility = "visible";
-                computerBox.style.visibility = "visible";
-
                 weaponsContainer.style.pointerEvents = "none";
-                
+                arena.style.animation = "bg-color-trans 0.8s ease-in-out";
+
                 setTimeout(() => {
-                    boxDotsB1.style.visibility = "visible";
-                    boxDotsB2.style.visibility = "visible"
-                    playerBox.style.visibility = "hidden";
-                    computerBox.style.visibility = "hidden";
+                    playerBox.src = `./Images/${this.dataset.weapon}.png`;
+                    computerBox.src = `./Images/${computerSelection}.png`;
+                    
+                    boxDotsB1.style.visibility = "hidden";
+                    boxDotsB2.style.visibility = "hidden";
+                    playerBox.style.visibility = "visible";
+                    computerBox.style.visibility = "visible";
 
-                    weaponsContainer.style.pointerEvents = "all";
+                    setTimeout(() => {
+                        boxDotsB1.style.visibility = "visible";
+                        boxDotsB2.style.visibility = "visible"
+                        playerBox.style.visibility = "hidden";
+                        computerBox.style.visibility = "hidden";
+                        arena.style.animation = "none";
+                        weaponsContainer.style.pointerEvents = "all";
 
-                    compareSelections(playerSelection,computerSelection);
-                }, 1000);
-
-
+                        compareSelections(playerSelection,computerSelection);
+                    }, 800);
+                }, 800);
+                
                 
             })
         })
     }
 
     const checkLifePoints = () => {
-        if ((playerScore === 0) || (computerScore === 0)){
+        if ((playerScore === 0) || (computerScore === 5)){
             location.reload();
         }
         /*console.log(playerScore);
@@ -99,28 +101,35 @@ const game = () => {
         
     }
 
-    const compareSelections = (playerSelection, computerSelection) => {
-        const arena = document.querySelector(".container");        
+    const compareSelections = (playerSelection, computerSelection) => {  
         
         if (playerSelection === computerSelection) {
-            arena.style.backgroundColor = "purple";
+            //arena.style.background = "black";
             return;
         }
         if ((playerSelection === "rock" && computerSelection === "scissors") ||
             (playerSelection === "paper" && computerSelection === "rock") ||
             (playerSelection === "scissors" && computerSelection === "paper")) {
-                computerScore--;
-                computerHealth[computerScore].src = "Images/health-down.png";
+                computerScore++;
+                computerHealth[computerScore - 1].src = "Images/health-down.png";
+                computerHealth[computerScore - 1].style.animation = "none";
+                computerHealth[computerScore - 1].style.backgroundImage = "none";
+                computerHealth[computerScore - 1].style.filter = "invert(1)";
                 checkLifePoints();
-                return arena.style.backgroundColor = "green";
+                //arena.style.background = "green";
+                return;
         }
         if ((computerSelection === "rock" && playerSelection === "scissors") ||
             (computerSelection === "paper" && playerSelection === "rock") ||
             (computerSelection === "scissors" && playerSelection === "paper")) {
                 playerScore--;
                 playerHealth[playerScore].src = "Images/health-down.png";
+                playerHealth[playerScore].style.animation = "none";
+                playerHealth[playerScore].style.backgroundImage = "none";
+                playerHealth[playerScore].style.filter = "invert(1)";
                 checkLifePoints();
-                return arena.style.backgroundColor = "red";
+                //arena.style.background = "red";
+                return
         }
     }
 
