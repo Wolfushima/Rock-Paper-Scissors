@@ -279,8 +279,23 @@ button:active {
 footer {
     border-top: yellow solid .1px;
     height: 30px;
-    background-image: url(Images/footer-pattern.jpg);
+    background-image: linear-gradient(rgb(32, 32, 32),rgb(15, 15, 48));
     background-size: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-family: fantasy;
+    color: rgb(51, 51, 51);
+    text-shadow: 1px 1px 1px #00c3ff9b;
+}
+
+footer div {
+    background-color: yellow;
+    padding: 0.1rem 1rem;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    align-self: baseline;
 }
 
 @keyframes neon-title {

@@ -1,7 +1,6 @@
 const game = () => {
     let playerScore = 5;
     let computerScore = 0;
-
     let playerBar = document.querySelectorAll(".health-1 img");
     let computerBar = document.querySelectorAll(".health-2 img");
     let playerHealth = Array.from(playerBar);
@@ -13,13 +12,11 @@ const game = () => {
 
     //start game
     const startGame = () => {
-        const startBtn = document.querySelector(".introGame button");
-        
+        const startBtn = document.querySelector(".introGame button");       
         const charChoosen = document.querySelectorAll(".characterSelection img");
         const charSelection = document.querySelector(".characterSelection");
         const characters = document.querySelector(".characters");
         
-
         startBtn.addEventListener("click", () => {
             introGame.classList.add("fadeOut");
             charSelection.classList.add("fadeIn");
@@ -39,10 +36,11 @@ const game = () => {
                         return imgCharComp.src = "Images/witch.png";
                     } else return imgCharComp.src = "Images/devil.png"
                 }
-                compChar();
 
                 characters.classList.add("fadeOut");
                 mainContent.classList.add("fadeIn");
+
+                compChar();
             })
         })
     }
@@ -51,8 +49,7 @@ const game = () => {
         const weaponsContainer = document.querySelector(".weapons");
         const weapons = document.querySelectorAll(".weapons-container button");
         const playerBox = document.querySelector(".sub-b1 img");
-        const computerBox = document.querySelector(".sub-b2 img");
-        
+        const computerBox = document.querySelector(".sub-b2 img");       
         const computerWeapons = ["rock", "paper", "scissors"];
 
         weapons.forEach(weapon => {
@@ -85,8 +82,6 @@ const game = () => {
                         compareSelections(playerSelection,computerSelection);
                     }, 800);
                 }, 800);
-                
-                
             })
         })
     }
@@ -95,23 +90,24 @@ const game = () => {
         const div = document.createElement("div");
         const button = document.createElement("button");
 
-        if ((playerScore === 4) || (computerScore === 1)){//pS = 0, cS = 5
+        if ((playerScore === 0) || (computerScore === 5)){
             body.insertBefore(div, introGame);
             div.classList.add("outroGame");
             div.appendChild(button);
-            
             button.classList.add("endBtn");
-            if (playerScore === 4) { 
-                button.textContent = "You Lost!";
-                button.style.backgroundColor = "#8c0101";
-            }
-            if (computerScore === 1) {
-                button.textContent = "You Won!";
-                button.style.backgroundColor = "#208502";
-            }
             mainContent.style.zIndex = "-1";
             mainContent.style.opacity = "0.1";
             button.onclick = () => { location.reload(); }
+
+            if (playerScore === 0) { 
+                button.textContent = "You Lost!";
+                button.style.backgroundColor = "#8c0101";
+            }
+            if (computerScore === 5) {
+                button.textContent = "You Won!";
+                button.style.backgroundColor = "#208502";
+            }
+            
         }
     }
 
@@ -140,7 +136,7 @@ const game = () => {
                 playerHealth[playerScore].style.backgroundImage = "none";
                 playerHealth[playerScore].style.filter = "invert(1)";
                 checkLifePoints();
-                return
+                return;
         }
     }
     startGame();
