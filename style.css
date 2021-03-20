@@ -9,7 +9,7 @@
 html {
     height: 100%;
     font-size: 60%;
-    font-family: 'Bungee Shade', cursive;
+    font-family: 'Bungee Shade', monospace;
     color: rgba(233, 233, 233, 0.898);
 }
 
@@ -66,6 +66,7 @@ div.fadeIn {
 header {
     text-align: center;
     width: auto;
+    height: auto;
     margin: 1.2rem 1.2rem 1.5rem 1.2rem;
     text-shadow: 4px 4px 4px #5c5c5cab;
     animation-name: neon-title;
@@ -164,10 +165,12 @@ img.boxImg {
     align-items: center;
     flex-direction: row;
     margin-top: -3rem;
+    flex-wrap: nowrap;
+    white-space: nowrap;
 }
 
 .health {
-    margin: 2rem auto;
+    margin: 1rem auto;
     width: auto;
     height: 90px;
     animation: health-blur 10s linear infinite;
@@ -291,15 +294,16 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
-    font-family: fantasy;
+    font-size: 1rem;
+    font-family: "Montserrat";
+    font-weight: 600;
     color: rgb(51, 51, 51);
     text-shadow: 1px 1px 1px #00c3ff9b;
 }
 
 footer div {
     background-color: yellow;
-    padding: 0.1rem 1rem;
+    padding: 0.1rem 0.6rem;
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
     align-self: baseline;
@@ -391,5 +395,11 @@ footer div {
     }
     header {
         font-size: 4rem;
+    }
+    footer {
+        height: 30px;
+    }
+    footer div {
+        padding: 0.1rem 1rem;
     }
 }
