@@ -395,6 +395,7 @@ footer div {
     }
     header {
         font-size: 4rem;
+        line-height: 50px;
     }
     footer {
         height: 30px;
